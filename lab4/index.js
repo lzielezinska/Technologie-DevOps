@@ -1,6 +1,8 @@
 const port = 8081;
 const express = require('express');
 const redis = require('redis');
+const bodyParser = require('body-parser');
+
 
 const app = express();
 const client = redis.createClient({
@@ -10,18 +12,26 @@ const client = redis.createClient({
 
 client.set('result', 0)
 
-app.post('/euclidean', function (req, res) {
-    var b=req.number1;
-    var a=req.number2;
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.post('/send', function(req, res) {
+    var b=req.body.number1;
+    var a=req.body.number2;
     var temp;
 
     while (b != 0) {  
-    temp = b;  
+      temp = b;  
       b = a % b;  
       a = temp;  
     }
-    
-    client.set('result', parseInt(a));   
+    client.set('result', parseInt(a));
+    res.send('Obliczenia wykonane!')
   });
+
+  app.get('/take', function (req, res) {
+    client.get('result', redis.print);
+  })
+  
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
