@@ -4,7 +4,7 @@ services:
     - docker
 
 before_install:
-    - docker build -t moja-aplikacja:v1 -f Dockerfile .
+    - docker build -t moja-aplikacja:v1 -f lab6/moja-aplikacja/Dockerfile lab6/moja-aplikacja/.
 
 script:
     - docker run -e CI=true moja-aplikacja:v1 yarn test
