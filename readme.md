@@ -14,4 +14,4 @@ curl -X POST --header 'Content-Type:application/json' --header 'Accept:text/html
 ``` 
 curl http://localhost:8081/take
 
-```        
+```
