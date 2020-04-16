@@ -1,3 +1,4 @@
+const port = 3000;
 const keys = require('./keys.js');
 const express = require('express');
 const redis = require('redis');
