@@ -12,13 +12,13 @@ services:
     image: 'redis:latest'
     command: ["redis-server", "--appendonly", "yes"]
     
-  # nginx:
-  #   restart: always
-  #   build:
-  #     dockerfile: Dockerfile.dev
-  #     context: ./nginx
-  #   ports:
-  #     - '8080:80'
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '8080:80'
 
   my-backend:
     build:
@@ -36,11 +36,11 @@ services:
       - PGPASSWORD=${PG_PASSWORD}
       - PGPORT=${PG_PORT}
 
-  # my-frontend:
-  #   build:
-  #     dockerfile: Dockerfile.dev
-  #     context: ./frontend
-  #   volumes:
-  #     - /app/node_modules
-  #     - ./frontend:/app
-  #   tty: true
+  my-frontend:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./frontend
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    tty: true
