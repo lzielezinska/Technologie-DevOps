@@ -10,14 +10,15 @@ services:
       - POSTGRES_PASSWORD=${PG_PASSWORD}
   my-redis-server:
     image: 'redis:latest'
-
-  nginx:
-    restart: always
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./nginx
-    ports:
-      - '8080:80'
+    command: ["redis-server", "--appendonly", "yes"]
+    
+  # nginx:
+  #   restart: always
+  #   build:
+  #     dockerfile: Dockerfile.dev
+  #     context: ./nginx
+  #   ports:
+  #     - '8080:80'
 
   my-backend:
     build:
@@ -35,11 +36,11 @@ services:
       - PGPASSWORD=${PG_PASSWORD}
       - PGPORT=${PG_PORT}
 
-  my-frontend:
-    build:
-      dockerfile: Dockerfile.dev
-      context: ./frontend
-    volumes:
-      - /app/node_modules
-      - ./frontend:/opt/app
-    tty: true
+  # my-frontend:
+  #   build:
+  #     dockerfile: Dockerfile.dev
+  #     context: ./frontend
+  #   volumes:
+  #     - /app/node_modules
+  #     - ./frontend:/app
+  #   tty: true

@@ -6,8 +6,8 @@ app.use(bodyParser.json());
 
 const redis = require('redis');
 const redisClient = redis.createClient({
-    host: keys.redisHost,
-    port: keys.redisPort
+    host: 'redis-server',
+    port: 6379
 });
 
 const { Pool } = require('pg');
@@ -29,7 +29,7 @@ app.get('/', (req, resp) => {
    resp.send('Brutto -> Netto calculator!');
 });
 
-app.post('/result/id', (req, resp) => {
+app.post('/result', (req, resp) => {
     const salary = req.body.salary;
 
     redisClient.get(salary, (err, result) => {
