@@ -1,16 +1,15 @@
 version: '3'
 
 services:
-  my-postgres-server:
+  postgres-server:
     image: 'postgres'
     environment:
       - POSTGRES_USER=${PG_USER}
       - POSTGRES_HOST=${PG_HOST}
       - POSTGRES_DATABASE=${PG_DATABASE}
       - POSTGRES_PASSWORD=${PG_PASSWORD}
-  my-redis-server:
-    image: 'redis:latest'
-    command: ["redis-server", "--appendonly", "yes"]
+  redis-server:
+    image: 'redis'
     
   nginx:
     restart: always
@@ -20,13 +19,13 @@ services:
     ports:
       - '8080:80'
 
-  my-backend:
+  backend:
     build:
       dockerfile: Dockerfile.dev
       context: ./backend
     volumes:
-      - /app/node_modules
-      - ./backend:/app
+      - /opt/app/node_modules
+      - ./backend:/opt/app
     environment:
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
@@ -35,8 +34,10 @@ services:
       - PGDATABASE=${PG_DATABASE}
       - PGPASSWORD=${PG_PASSWORD}
       - PGPORT=${PG_PORT}
+    ports:
+      - '4000:4000'
 
-  my-frontend:
+  frontend:
     build:
       dockerfile: Dockerfile.dev
       context: ./frontend

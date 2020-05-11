@@ -1,12 +1,12 @@
 FROM node:7
 
-WORKDIR /app
+WORKDIR /opt/app
 
-COPY package.json /app
+COPY package.json .
 
 RUN npm install
 
-COPY . /app
+COPY . .
 
 CMD node index.js
 

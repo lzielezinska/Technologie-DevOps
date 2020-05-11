@@ -6,8 +6,8 @@ app.use(bodyParser.json());
 
 const redis = require('redis');
 const redisClient = redis.createClient({
-    host: 'redis-server',
-    port: 6379
+    host: keys.redisHost,
+    port: keys.redisPort,
 });
 
 const { Pool } = require('pg');
@@ -35,7 +35,7 @@ app.post('/result', (req, resp) => {
     redisClient.get(salary, (err, result) => {
         if (!result) {
             let salaryNetto = getNetto(salary);
-            redisClient.set(salaryNetto);
+            redisClient.set('result',salaryNetto, redis.print);
             resp.send('New result ' + salaryNetto);
             pgClient.query('INSERT INTO results VALUES ($1)', [salaryNetto]).catch(err => console.log(err));
         }
