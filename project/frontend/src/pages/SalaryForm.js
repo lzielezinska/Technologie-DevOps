@@ -18,8 +18,7 @@ export default class SalaryForm extends React.Component {
       
     handlerSubmit = (e) => {
       e.preventDefault();
-      console.log(this.state);
-      axios.post("http://localhost:4000/result", this.state)
+      axios.post("api/result", this.state)
       .then(response=>{
         console.log(response)
       })

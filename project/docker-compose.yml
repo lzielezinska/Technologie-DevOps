@@ -34,8 +34,8 @@ services:
       - PGDATABASE=${PG_DATABASE}
       - PGPASSWORD=${PG_PASSWORD}
       - PGPORT=${PG_PORT}
-    ports:
-      - '4000:4000'
+    # ports:
+    #   - '4000:4000'
 
   frontend:
     build:
@@ -44,6 +44,6 @@ services:
     volumes:
       - /app/node_modules
       - ./frontend:/app
-    ports:
-      - '3000:3000'
+    # ports:
+    #   - '3000:3000'
     tty: true
