@@ -1,3 +1,21 @@
+## lab7
+Node.js + redis + postgress
+
+Uruchomienie redisa:
+```
+docker run -p 6379:6379 redis
+```
+
+Uruchomienie postgresa:
+```
+docker run -e POSTGRES_PASSWORD=123abc123 -p 5432:5432 postgres
+```
+
+## lab6
+### travis:
+
+[![Build Status](https://travis-ci.com/lzielezinska/Technologie-DevOps.svg?branch=master)](https://travis-ci.com/lzielezinska/Technologie-DevOps)
+
 ## lab5
 ### auto-refresh:
 
