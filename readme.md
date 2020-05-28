@@ -1,3 +1,9 @@
+## lab8  Docker-project
+Przykładowe zmienne środowiskowe:
+```
+export REDIS_HOST=redis REDIS_PORT=6379 PGUSER=postgres PGHOST=postgres PGDATABASE=postgres PGDPASSWORD=123abc123 PGPORT=5432
+```
+
 ## lab7
 Node.js + redis + postgress
 
