@@ -1,3 +1,12 @@
+## lab11
+Zakodowanie hasła do postgresa:
+```
+echo -n '123abc123' | base64
+```
+
+## lab9
+Podstawowe komendy w K8S + definicja Poda.
+
 ## lab8  Docker-project
 Przykładowe zmienne środowiskowe:
 ```

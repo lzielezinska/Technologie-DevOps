@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-second-pod
+  name: my-pod
 spec:
   containers:
-  - name: project-my-backend-pod
-    image: project_my-backend
+  - name: mybackend
+    image: lab8dockerproject_nginx
