@@ -7,8 +7,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-    - targetPort: 5000
-      port: 80
+    - targetPort: 4000
+      port: 4000
       nodePort: 30008
 
   selector:
