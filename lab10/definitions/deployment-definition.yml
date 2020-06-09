@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: lab10-backend
-          image: random-number-generator
+          image: lzielezinska/random_number
           ports:
             - containerPort: 4000
   replicas: 3

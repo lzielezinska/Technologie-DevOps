@@ -3,6 +3,13 @@ Zakodowanie hasła do postgresa:
 ```
 echo -n '123abc123' | base64
 ```
+## lab10
+Losowanie liczby -> backend node.js
+Test poleceń:
+```
+kubectl replace -f rs-definition.yml 
+kubectl scale --replicas=6 -f rs-definition.yml
+```
 
 ## lab9
 Podstawowe komendy w K8S + definicja Poda.

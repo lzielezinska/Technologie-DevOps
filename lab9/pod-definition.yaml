@@ -5,4 +5,4 @@ metadata:
 spec:
   containers:
   - name: mybackend
-    image: lab8dockerproject_nginx
+    image: lzielezinska/backend:v1

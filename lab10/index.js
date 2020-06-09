@@ -7,7 +7,7 @@ app.use(bodyParser.json());
 const random_number = Math.random();
 
 app.get("/", (req, res) => {
-   return res.send(random_number);
+   return res.json(random_number);
 });
 
 app.listen(4000, () => {

@@ -7,4 +7,4 @@ metadata:
 
 data:
   WELCOME_MESSAGE: "Hello world!"
-  MAX_REQUESTS: "3"
+  MAX_REQUESTS: "5"
