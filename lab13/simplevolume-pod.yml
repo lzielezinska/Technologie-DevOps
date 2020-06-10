@@ -16,5 +16,5 @@ spec:
   volumes:
     - name: data-volume
       hostPath:
-        path: /home/lusi/Tmp/dockervolume
+        path: /home/lusi/K8S
         type: DirectoryOrCreate

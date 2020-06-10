@@ -10,4 +10,4 @@ spec:
   capacity:
     storage: 100Mi
   hostPath:
-    path: /home/lusi/Tmp/k8s-volume1
+    path: /home/lusi/K8S

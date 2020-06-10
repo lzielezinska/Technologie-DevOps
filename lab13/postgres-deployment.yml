@@ -20,15 +20,24 @@ spec:
       containers:
         - name: my-postgres-container
           image: postgres
+          volumeMounts:
+            - mountPath: "/home/lusi/K8S"
+              name: postgresvolume
+              subPath: postgres
           env:
+           - name: PGDATA
+             value: "/home/lusi/K8S"
            - name: POSTGRES_PASSWORD
              valueFrom:
                secretKeyRef:
                  name: myapp-secret
                  key: PGPASSWORD
+      volumes:
+        - name: postgresvolume
+          persistentVolumeClaim:
+            claimName: postgres-pvc
   
   replicas: 1
   selector:
     matchLabels:
       type: db
-      
